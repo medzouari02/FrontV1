@@ -1,0 +1,45 @@
+<div class="form-container">
+  <h2>Ajouter un Technicien</h2>
+  <form [formGroup]="technicianForm" (ngSubmit)="onSubmit()">
+    <label>
+      Nom :
+      <input formControlName="name" required />
+      <span *ngIf="technicianForm.get('name')?.hasError('required') && technicianForm.get('name')?.touched" class="error">
+        Le nom est requis
+      </span>
+    </label>
+    <label>
+      Email :
+      <input formControlName="email" required />
+      <span *ngIf="technicianForm.get('email')?.hasError('required') && technicianForm.get('email')?.touched" class="error">
+        L'email est requis
+      </span>
+      <span *ngIf="technicianForm.get('email')?.hasError('email') && technicianForm.get('email')?.touched" class="error">
+        Email invalide
+      </span>
+    </label>
+    <label>
+      Téléphone :
+      <input formControlName="telephone" required />
+      <span *ngIf="technicianForm.get('telephone')?.hasError('required') && technicianForm.get('telephone')?.touched" class="error">
+        Le téléphone est requis
+      </span>
+    </label>
+    <label>
+      Mot de passe :
+      <input type="password" formControlName="password" required />
+      <span *ngIf="technicianForm.get('password')?.hasError('required') && technicianForm.get('password')?.touched" class="error">
+        Le mot de passe est requis
+      </span>
+      <span *ngIf="technicianForm.get('password')?.hasError('minlength') && technicianForm.get('password')?.touched" class="error">
+        Le mot de passe doit contenir au moins 6 caractères
+      </span>
+    </label>
+    <div class="flex space-x-4 mt-4">
+      <button type="submit" class="primary" [disabled]="!technicianForm.valid">Enregistrer</button>
+      <button type="button" (click)="resetForm()">Annuler</button>
+    </div>
+  </form>
+  <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>

@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root {
+  --vs-primary: 29 92 255;
+}
+
+.form-container {
+  padding: 2rem 2.5rem;
+  background: white;
+  max-width: 400px;
+  margin: 2rem auto;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  font-family: Poppins, sans-serif;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+input {
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.success {
+  color: green;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+button.primary {
+  background: rgb(var(--vs-primary));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(29, 92, 255, 0.3);
+  transition: 0.2s ease;
+}
+
+button.primary:hover {
+  background: rgba(29, 92, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+button.primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+button[type="button"] {
+  background: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+button[type="button"]:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}

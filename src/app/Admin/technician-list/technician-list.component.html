@@ -1,0 +1,78 @@
+<div class="flex justify-end mb-4">
+  <button routerLink="../add-technicien"
+    class="py-2 px-3 flex items-center text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
+    <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"/>
+    </svg>
+    Ajouter Technicien
+  </button>
+</div>
+<div class="overflow-x-auto">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th class="p-4">
+          <input id="checkbox-all" type="checkbox"
+            class="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+        </th>
+        <th class="p-4">Name</th>
+        <th class="p-4">Email</th>
+        <th class="p-4">Telephone</th>
+        <th class="p-4">Role</th>
+        <th class="p-4">Spécialité</th>
+        <th class="p-4">Disponibilité</th>
+        <th class="p-4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let technician of technicians; let i = index"
+            class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+        <td class="p-4 w-4">
+          <input [id]="'checkbox-' + i" type="checkbox"
+            class="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+        </td>
+        <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          {{ technician.name }}
+        </th>
+        <td class="px-4 py-3">{{ technician.email }}</td>
+        <td class="px-4 py-3">{{ technician.telephone }}</td>
+        <td class="px-4 py-3">
+          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+            {{ technician.role }}
+          </span>
+        </td>
+        <td class="px-4 py-3">{{ technician.specialite || 'N/A' }}</td>
+        <td class="px-4 py-3">{{ technician.disponibilite || 'N/A' }}</td>
+        <td class="px-4 py-3">
+          <div class="flex items-center space-x-2">
+            <!-- Bouton Edit -->
+            <button (click)="openEditDialog(technician)"
+              class="py-2 px-3 flex items-center text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
+              <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"/>
+                <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"/>
+              </svg>
+              Edit
+            </button>
+            <!-- Bouton View -->
+            <button routerLink="../technicien-profile/{{ technician.id }}"
+              class="py-2 px-3 flex items-center text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300">
+              <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2C5 2 1 10 1 10s4 8 9 8 9-8 9-8-4-8-9-8zm0 14c-3.3 0-6-3.6-6-6s2.7-6 6-6 6 3.6 6 6-2.7 6-6 6zm0-10a4 4 0 100 8 4 4 0 000-8z" />
+              </svg>
+              View
+            </button>
+            <!-- Bouton Delete -->
+            <button (click)="deleteTechnician(technician)"
+              class="py-2 px-3 flex items-center text-sm font-medium text-white bg-red-600 rounded hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300">
+              <svg class="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H3a1 1 0 100 2h1v10a2 2 0 002 2h8a2 2 0 002-2V6h1a1 1 0 100-2h-2V3a1 1 0 00-1-1H6zm3 6a1 1 0 112 0v6a1 1 0 11-2 0V8zm-3 0a1 1 0 112 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 112 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd"/>
+              </svg>
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

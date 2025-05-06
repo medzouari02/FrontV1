@@ -1,0 +1,65 @@
+<div class="overflow-x-auto">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th class="p-4">
+          <input id="checkbox-all" type="checkbox"
+            class="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+        </th>
+        <th class="p-4">ID</th>
+        <th class="p-4">Nom Client</th>
+        <th class="p-4">Adresse</th>
+        <th class="p-4">Téléphone</th>
+        <th class="p-4">Email</th>
+        <th class="p-4">Date Début</th>
+        <th class="p-4">Description</th>
+        <th class="p-4">Commentaire</th>
+        <th class="p-4">Type</th>
+        <th class="p-4">Date Fin</th>
+        <th class="p-4">État</th>
+        <th class="p-4">Technicien</th>
+        <th class="p-4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mission of missions; let i = index" class="hover:bg-gray-100 dark:hover:bg-gray-700">
+        <td class="p-4 w-4">
+          <input [id]="'checkbox-' + i" type="checkbox"
+            class="w-4 h-4 text-primary-600 bg-gray-100 rounded border-gray-300 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+        </td>
+        <td class="px-4 py-3">{{ mission.id }}</td>
+        <th class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          {{ mission.nom_client }}
+        </th>
+        <td class="px-4 py-3">{{ mission.adress }}</td>
+        <td class="px-4 py-3">{{ mission.telephone }}</td>
+        <td class="px-4 py-3">{{ mission.adress_email }}</td>
+        <td class="px-4 py-3">{{ mission.datedeb }}</td>
+        <td class="px-4 py-3">{{ mission.description }}</td>
+        <td class="px-4 py-3">{{ mission.commentaire }}</td>
+        <td class="px-4 py-3">{{ mission.type }}</td>
+        <td class="px-4 py-3">{{ mission.datefin || 'Non défini' }}</td>
+        <td class="px-4 py-3">
+          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+            {{ mission.etat || '-' }}
+          </span>
+        </td>
+        <td class="px-4 py-3">
+          <span class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
+            {{ mission.technicien?.name || 'Aucun technicien' }}
+          </span>
+        </td>
+        <td class="px-4 py-3">
+          <div class="flex items-center space-x-2">
+            <!-- Bouton Assign Technician -->
+            <button (click)="openAssignTechnicianDialog(mission.id)"
+              class="py-2 px-3 flex items-center text-sm font-medium text-white bg-purple-600 rounded hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300">
+              <mat-icon class="mr-2">person_add</mat-icon>
+              Assigner Technicien
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

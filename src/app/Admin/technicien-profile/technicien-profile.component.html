@@ -1,0 +1,75 @@
+<div class="form-container" *ngIf="!loading && technicien">
+  <h2>Profil du technicien</h2>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-dyZ0wzvG8g8WVVwEQz2FjTXowqRtM0GhGm+KkoEq7aTzEKW7tZHT1J57sz1yL0PC2KXv9m+a5V3ewZztM6Qz2w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <div class="client-info">
+    <div class="info-field">
+      <i class="fas fa-user"></i>
+      <div>
+        <label>Nom :</label>
+        <span>{{ technicien.name }}</span>
+      </div>
+    </div>
+    <div class="info-field">
+      <i class="fas fa-envelope"></i>
+      <div>
+        <label>Email :</label>
+        <span>{{ technicien.email }}</span>
+      </div>
+    </div>
+    <div class="info-field">
+      <i class="fas fa-phone"></i>
+      <div>
+        <label>Téléphone :</label>
+        <span>{{ technicien.telephone }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="missions-section" *ngIf="!missionsLoading && missions.length > 0">
+    <h3>Missions liées à ce client</h3>
+    <div class="missions-grid">
+      <div class="mission-card" *ngFor="let mission of missions">
+        <h4>Mission {{ mission.id }}</h4>
+        <div class="mission-detail">
+          <strong>Description:</strong> {{ mission.description }}
+        </div>
+        <div class="mission-detail">
+          <strong>Adresse:</strong> {{ mission.adress }}
+        </div>
+        <div class="mission-detail">
+          <strong>Téléphone:</strong> {{ mission.telephone }}
+        </div>
+        <div class="mission-detail">
+          <strong>Email:</strong> {{ mission.adress_email }}
+        </div>
+        <div class="mission-detail">
+          <strong>Etat:</strong> {{ mission.etat }}
+        </div>
+        <div class="mission-detail">
+          <strong>Date début:</strong> {{ mission.datedeb }}
+        </div>
+        <div class="mission-detail">
+          <strong>Date fin:</strong> {{ mission.datefin || 'Non spécifiée' }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!missionsLoading && missions.length === 0">
+    Aucune mission trouvée pour ce client.
+  </div>
+
+  <div class="error" *ngIf="missionsError">
+    {{ missionsError }}
+  </div>
+
+  <div class="loading" *ngIf="missionsLoading">
+    Chargement des missions...
+  </div>
+</div>
+
+<div class="form-container" *ngIf="!loading && errorMessage">
+  <h2>Erreur</h2>
+  <div class="error">{{ errorMessage }}</div>
+</div>

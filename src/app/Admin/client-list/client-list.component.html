@@ -1,0 +1,31 @@
+<div class="overflow-x-auto">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="p-4">Nom</th>
+        <th scope="col" class="p-4">Email</th>
+        <th scope="col" class="p-4">Téléphone</th>
+        <th scope="col" class="p-4">Rôle</th>
+          <th scope="col" class="p-4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients" class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+        <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">{{ client.name }}</td>
+        <td class="px-4 py-3">{{ client.email }}</td>
+        <td class="px-4 py-3">{{ client.telephone }}</td>
+        <td class="px-4 py-3">
+          <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+            {{ client.role }}
+          </span>
+        </td>
+        <td class="px-4 py-3">
+          <div class="flex space-x-2">
+            <button routerLink="../client-profile/{{ client.id }}" class="px-3 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700">Voir</button>
+            <button (click)="deleteClient(client)" class="px-3 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-700">Supprimer</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

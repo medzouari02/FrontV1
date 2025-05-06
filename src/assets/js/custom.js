@@ -1,5 +1,5 @@
 (function ($) {
-	
+
 	"use strict";
 
 	// Page loading animation
@@ -11,7 +11,7 @@
 
 	// WOW JS
 	$(window).on ('load', function (){
-        if ($(".wow").length) { 
+        if ($(".wow").length) {
             var wow = new WOW ({
                 boxClass:     'wow',      // Animated element css class (default is wow)
                 animateClass: 'animated', // Animation css class (default is animated)
@@ -44,7 +44,7 @@
 		  // Allow items to be toggled independently
 		  toggle: false
 		},
-  
+
 		openAccordion: function(toggle, content) {
 		  if (content.children.length) {
 			toggle.classList.add("is-open");
@@ -52,21 +52,21 @@
 			content.style.height = final_height + "px";
 		  }
 		},
-  
+
 		closeAccordion: function(toggle, content) {
 		  toggle.classList.remove("is-open");
 		  content.style.height = 0;
 		},
-  
+
 		init: function(el) {
 		  const _this = this;
-  
+
 		  // Override default settings with classes
 		  let is_first_expanded = _this.settings.first_expanded;
 		  if (el.classList.contains("is-first-expanded")) is_first_expanded = true;
 		  let is_toggle = _this.settings.toggle;
 		  if (el.classList.contains("is-toggle")) is_toggle = true;
-  
+
 		  // Loop through the accordion's sections and set up the click behavior
 		  const sections = el.getElementsByClassName("accordion");
 		  const all_toggles = el.getElementsByClassName("accordion-head");
@@ -75,7 +75,7 @@
 			const section = sections[i];
 			const toggle = all_toggles[i];
 			const content = all_contents[i];
-  
+
 			// Click behavior
 			toggle.addEventListener("click", function(e) {
 			  if (!is_toggle) {
@@ -83,7 +83,7 @@
 				for (let a = 0; a < all_contents.length; a++) {
 				  _this.closeAccordion(all_toggles[a], all_contents[a]);
 				}
-  
+
 				// Expand the clicked item
 				_this.openAccordion(toggle, content);
 			  } else {
@@ -95,7 +95,7 @@
 				}
 			  }
 			});
-  
+
 			// Expand the first item
 			if (i === 0 && is_first_expanded) {
 			  _this.openAccordion(toggle, content);
@@ -103,7 +103,7 @@
 		  }
 		}
 	  };
-  
+
 	  (function() {
 		// Initiate all instances on the page
 		const accordions = document.getElementsByClassName("accordions");
@@ -111,20 +111,20 @@
 		  Accordion.init(accordions[i]);
 		}
 	  })();
-  
+
 
 
 
 	$(document).on("click", ".naccs .menu div", function() {
 		var numberIndex = $(this).index();
-	
+
 		if (!$(this).is("active")) {
 			$(".naccs .menu div").removeClass("active");
 			$(".naccs ul li").removeClass("active");
-	
+
 			$(this).addClass("active");
 			$(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
-	
+
 			var listItemHeight = $(".naccs ul")
 				.find("li:eq(" + numberIndex + ")")
 				.innerHeight();
@@ -149,11 +149,11 @@
       }
 	});
 
-	
+
 
 	// Menu Dropdown Toggle
 	if($('.menu-trigger').length){
-		$(".menu-trigger").on('click', function() {	
+		$(".menu-trigger").on('click', function() {
 			$(this).toggleClass('active');
 			$('.header-area .nav').slideToggle(200);
 		});
@@ -169,8 +169,8 @@
 				var width = $(window).width();
 				if(width < 991) {
 					$('.menu-trigger').removeClass('active');
-					$('.header-area .nav').slideUp(200);	
-				}				
+					$('.header-area .nav').slideUp(200);
+				}
 				$('html,body').animate({
 					scrollTop: (target.offset().top) - 80
 				}, 700);
@@ -181,17 +181,17 @@
 
 	$(document).ready(function () {
 	    $(document).on("scroll", onScroll);
-	    
+
 	    //smoothscroll
 	    $('.scroll-to-section a[href^="#"]').on('click', function (e) {
 	        e.preventDefault();
 	        $(document).off("scroll");
-	        
+
 	        $('.scroll-to-section a').each(function () {
 	            $(this).removeClass('active');
 	        })
 	        $(this).addClass('active');
-	      
+
 	        var target = this.hash,
 	        menu = target;
 	       	var target = $(this.hash);
@@ -238,7 +238,7 @@
 		});
 	});
 
-	
+
 
 	const dropdownOpener = $('.main-nav ul.nav .has-sub > a');
 
@@ -278,7 +278,7 @@
     }
 
 
-	
+
 
 
 })(window.jQuery);

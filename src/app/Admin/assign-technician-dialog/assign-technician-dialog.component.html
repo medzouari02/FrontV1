@@ -1,0 +1,21 @@
+<div class="dialog-content">
+    <h2>Assigner un technicien</h2>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <label>
+        Technicien :
+        <select formControlName="technicien_id" required>
+          <option value="" disabled>Sélectionner un technicien</option>
+          <option *ngFor="let technician of technicians" [value]="technician.id">
+            {{ technician.name }}
+          </option>
+        </select>
+        <span *ngIf="form.get('technicien_id')?.hasError('required') && form.get('technicien_id')?.touched" class="error">
+          Le technicien est requis
+        </span>
+      </label>
+      <div class="flex space-x-4 mt-4">
+        <button type="submit" class="primary" [disabled]="!form.valid">Assigner</button>
+        <button type="button" (click)="closeDialog()">Annuler</button>
+      </div>
+    </form>
+  </div>

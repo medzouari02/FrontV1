@@ -1,0 +1,58 @@
+/* Layout général */
+.sidenav-container {
+  height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Toolbar principale */
+.toolbar {
+  background-color: #fff;
+  color: #111827;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 0 16px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-left: 12px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Sidenav avec dégradé gris clair */
+.sidenav {
+  width: 230px;
+  background: linear-gradient(to bottom, #e5e7eb, #f3f4f6);
+  color: #111827;
+}
+
+.sidenav-header {
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px;
+  color: #111827;
+}
+
+mat-nav-list a.mat-list-item {
+  color: #374151;
+  border-radius: 8px;
+  margin: 4px 12px;
+  transition: background-color 0.2s ease;
+}
+
+mat-nav-list a.mat-list-item:hover {
+  background-color: #d1d5db;
+}
+
+/* Contenu principal */
+.content {
+  padding: 24px;
+  margin: 16px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}

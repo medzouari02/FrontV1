@@ -1,3 +1,8 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<!-- Afficher le header seulement si l'utilisateur est connecté ET est un client -->
+<app-header *ngIf="AuthApiService.isLoggedIn() && AuthApiService.isClient()"></app-header>
+
+<!-- Contenu principal -->
+<router-outlet *ngIf="AuthApiService.isLoggedIn()&& AuthApiService.isClient()"></router-outlet>
+
+<!-- Afficher le footer seulement si l'utilisateur est connecté -->
+<app-footer *ngIf="AuthApiService.isLoggedIn()&& AuthApiService.isClient()"></app-footer>

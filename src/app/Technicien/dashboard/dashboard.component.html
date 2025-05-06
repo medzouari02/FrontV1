@@ -1,0 +1,46 @@
+<div class="dashboard-grid">
+  <div class="card card-pending">
+    <h3>Missions en attente</h3>
+    <div class="pending-count">{{ pendingMissions }}</div>
+  </div>
+
+  <div class="card">
+    <h3>Mes Performances</h3>
+    <canvas baseChart
+            [datasets]="chartDataLine"
+            [labels]="chartLabelsLine"
+            [options]="chartOptionsLine"
+            [type]="'line'">
+    </canvas>
+  </div>
+
+  <div class="card">
+    <h3>Répartition des Missions</h3>
+    <canvas baseChart
+            [datasets]="chartDataPie"
+            [labels]="chartLabelsPie"
+            [options]="chartOptionsPie"
+            [type]="'pie'">
+    </canvas>
+  </div>
+
+  <div class="card">
+    <h3>Statut des Missions</h3>
+    <canvas baseChart
+            [datasets]="chartDataDoughnut"
+            [labels]="chartLabelsDoughnut"
+            [options]="chartOptionsDoughnut"
+            [type]="'doughnut'">
+    </canvas>
+  </div>
+
+  <div class="card">
+    <h3>Interventions par Mois</h3>
+    <canvas baseChart
+            [datasets]="chartDataBar"
+            [labels]="chartLabelsBar"
+            [options]="chartOptionsBar"
+            [type]="'bar'">
+    </canvas>
+  </div>
+</div>

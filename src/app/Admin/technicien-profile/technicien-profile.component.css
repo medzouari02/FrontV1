@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --primary-color: #1d5cff;
+  --background-light: #f5f8ff;
+  --text-dark: #2c3e50;
+  --card-bg: #ffffff;
+  --card-border: #dee2f8;
+  --accent-color: #eef3ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-light);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+}
+
+.form-container {
+  padding: 3rem;
+  background: var(--card-bg);
+  max-width: 1000px;
+  margin: 4rem auto;
+  border-radius: 24px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.client-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info-field {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.info-field i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  min-width: 24px;
+}
+
+.info-field label {
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.info-field span {
+  font-size: 1.05rem;
+  color: #2c3e50;
+}
+
+.missions-section {
+  margin-top: 3rem;
+}
+
+.missions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mission-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--accent-color);
+}
+
+.mission-card h4 {
+  margin: 0 0 1.5rem 0;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mission-detail {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.mission-detail strong {
+  color: #000;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .client-info {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    padding: 2rem;
+  }
+}

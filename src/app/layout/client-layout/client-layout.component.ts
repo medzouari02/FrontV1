@@ -1,6 +1,8 @@
 import { Component, OnInit, Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
+import { AuthService } from 'src/app/service/auth.service';
+
 @Component({
   selector: 'app-client-layout',
   templateUrl: './client-layout.component.html',
@@ -8,7 +10,11 @@ import { DOCUMENT } from '@angular/common';
 })
 export class ClientLayoutComponent implements OnInit {
 
-  constructor(private renderer: Renderer2, @Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    private renderer: Renderer2,
+    @Inject(DOCUMENT) private document: Document,
+    public AuthApiService: AuthService // rendu public pour être utilisé dans le HTML
+  ) {}
 
   ngOnInit(): void {
     this.loadStyles();

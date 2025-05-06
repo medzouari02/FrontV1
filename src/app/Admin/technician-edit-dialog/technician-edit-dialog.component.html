@@ -1,0 +1,25 @@
+<div class="dialog-content">
+  <h2>Modifier le technicien</h2>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <label>
+      Nom :
+      <input formControlName="name" required />
+      <span *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched" class="error">Le nom est requis</span>
+    </label>
+    <label>
+      Email :
+      <input formControlName="email" required />
+      <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched" class="error">L'email est requis</span>
+      <span *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched" class="error">Email invalide</span>
+    </label>
+    <label>
+      Téléphone :
+      <input formControlName="telephone" required />
+      <span *ngIf="form.get('telephone')?.hasError('required') && form.get('telephone')?.touched" class="error">Le téléphone est requis</span>
+    </label>
+    <div class="flex space-x-4 mt-4">
+      <button type="submit" class="primary" [disabled]="!form.valid">Enregistrer</button>
+      <button type="button" (click)="closeDialog()">Annuler</button>
+    </div>
+  </form>
+</div>
